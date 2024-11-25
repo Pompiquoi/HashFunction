@@ -43,9 +43,13 @@
             </li>
             <li><strong>Length Extension Attacks:</strong> For some hash functions, attackers can extend the original
                 message without knowing its content.</li>
+            <li><strong>Dictionary-based Attacks:</strong> A brute-force technique where attackers use a precompiled
+                list of common inputs (e.g., passwords or phrases) to compare against hashed values. This approach
+                leverages human tendencies to reuse predictable or weak passwords.</li>
         </ul>
         <h3>Practical Example with Hashcat</h3>
-        <p>Hashcat is a popular tool for cracking hashes. Here's an example of cracking a simple MD5 hash:</p>
+        <p>Hashcat is a popular tool for cracking hashes. Here's an example of cracking a simple MD5 hash using a
+            dictionary-based attack:</p>
         <p>In this example 10k-most-common.txt is a list of the 10k most common password, and it looks like this:</p>
         <pre>
             password
