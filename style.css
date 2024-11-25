@@ -16,7 +16,7 @@ body {
 
 /* Header Styles */
 header {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background: rgb(32, 70, 158);
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -65,7 +65,7 @@ main {
 main h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #6a11cb;
+    color: rgb(32, 70, 158);
 }
 
 main p {
