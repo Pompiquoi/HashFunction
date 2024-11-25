@@ -55,7 +55,7 @@ nav ul li a:hover {
 /* Highlight Active Page */
 nav ul li a.active {
     background: #fff;
-    color: #6a11cb;
+    color: #000;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
