@@ -23,16 +23,42 @@
     </header>
     <main>
         <h2>Detailed Description</h2>
-        <p>Hash functions transform input data into fixed-length outputs. Common threats include collision attacks,
-            where two inputs produce the same hash, and pre-image attacks, targeting reverse engineering of the input.
-        </p>
-        <h3>Example with Hashcat</h3>
+        <p>A hash function is a one-way function that processes input data into a fixed-size string. Its main
+            characteristics are:</p>
+        <ul>
+            <li><strong>Deterministic:</strong> The same input always produces the same output.</li>
+            <li><strong>Pre-image Resistance:</strong> It should be computationally infeasible to reverse-engineer the
+                input from the hash.</li>
+            <li><strong>Collision Resistance:</strong> It should be highly unlikely for two different inputs to produce
+                the same hash.</li>
+            <li><strong>Fast Computation:</strong> The function should generate hashes efficiently, even for large
+                inputs.</li>
+        </ul>
+        <h3>Weaknesses</h3>
+        <p>Despite their strengths, hash functions can exhibit vulnerabilities:</p>
+        <ul>
+            <li><strong>Collision Attacks:</strong> When two different inputs produce the same hash. For example,
+                researchers have demonstrated this for MD5 and SHA-1.</li>
+            <li><strong>Pre-image Attacks:</strong> Attempting to find an input that corresponds to a given hash value.
+            </li>
+            <li><strong>Length Extension Attacks:</strong> For some hash functions, attackers can extend the original
+                message without knowing its content.</li>
+        </ul>
+        <h3>Practical Example with Hashcat</h3>
+        <p>Hashcat is a popular tool for cracking hashes. Here's an example of cracking a simple MD5 hash:</p>
         <pre>
-# Cracking MD5 Hash with Hashcat
-hashcat -a 0 -m 0 hash.txt wordlist.txt
+    # Save the hash to a file named "hash.txt"
+    # Use a wordlist (e.g., "wordlist.txt") to crack it
+    hashcat -a 0 -m 0 hash.txt wordlist.txt
         </pre>
-        <p>This command uses Hashcat to attempt cracking an MD5 hash using a wordlist.</p>
+        <p>In this command:</p>
+        <ul>
+            <li><strong>-a 0:</strong> Use dictionary-based attack.</li>
+            <li><strong>-m 0:</strong> Specify the hash type (0 for MD5).</li>
+        </ul>
+        <p>This demonstrates how attackers exploit weak hash functions in real-world scenarios.</p>
     </main>
+
     <footer>
         <p>&copy; 2024 Hash Functions Insights</p>
     </footer>
