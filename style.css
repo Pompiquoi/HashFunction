@@ -36,10 +36,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 10px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0;
 }
 
 nav ul li a {
@@ -53,6 +50,14 @@ nav ul li a {
 
 nav ul li a:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+/* Highlight Active Page */
+nav ul li a.active {
+    background: #fff;
+    color: #6a11cb;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Main Content */
