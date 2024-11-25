@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description & Weaknesses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Hash Functions</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="state-of-art.html">State of Art</a></li>
+                <li><a href="description.html">Description</a></li>
+                <li><a href="opinion.html">Opinion</a></li>
+                <li><a href="conclusion.html">Conclusion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Detailed Description</h2>
+        <p>Hash functions transform input data into fixed-length outputs. Common threats include collision attacks,
+            where two inputs produce the same hash, and pre-image attacks, targeting reverse engineering of the input.
+        </p>
+        <h3>Example with Hashcat</h3>
+        <pre>
+# Cracking MD5 Hash with Hashcat
+hashcat -a 0 -m 0 hash.txt wordlist.txt
+        </pre>
+        <p>This command uses Hashcat to attempt cracking an MD5 hash using a wordlist.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Hash Functions Insights</p>
+    </footer>
+</body>
+
+</html>
