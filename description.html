@@ -46,16 +46,83 @@
         </ul>
         <h3>Practical Example with Hashcat</h3>
         <p>Hashcat is a popular tool for cracking hashes. Here's an example of cracking a simple MD5 hash:</p>
+        <p>In this example 10k-most-common.txt is a list of the 10k most common password, and it looks like this:</p>
         <pre>
-    # Save the hash to a file named "hash.txt"
-    # Use a wordlist (e.g., "wordlist.txt") to crack it
-    hashcat -a 0 -m 0 hash.txt wordlist.txt
+            password
+            123456
+            12345678
+            1234
+            qwerty
+            12345
+            dragon
+            ...
+        </pre>
+        <p>And hash.txt is a MD5 hash of a random word in the list of 10k-most-common.txt</p>
+        <pre>
+            a5e10524dda9887ddb4efcee847e3a71
+        </pre>
+        <p>The command:</p>
+        <pre>
+            hashcat -a 0 -m 0 hash.txt 10k-most-common.txt
         </pre>
         <p>In this command:</p>
         <ul>
             <li><strong>-a 0:</strong> Use dictionary-based attack.</li>
             <li><strong>-m 0:</strong> Specify the hash type (0 for MD5).</li>
         </ul>
+        <p>The command give us this result:</p>
+        <pre>
+            hashcat (v6.2.6) starting
+            
+            Minimum password length supported by kernel: 0
+            Maximum password length supported by kernel: 256
+
+            Hashes: 1 digests; 1 unique digests, 1 unique salts
+            Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+            Rules: 1
+
+
+            Dictionary cache built:
+            * Filename..: 10k-most-common.txt
+            * Passwords.: 10000
+            * Bytes.....: 73017
+            * Keyspace..: 10000
+            * Runtime...: 0 secs
+
+            Approaching final keyspace - workload adjusted.
+
+            a5e10524dda9887ddb4efcee847e3a71:
+            <strong>eldorado</strong>
+
+            Session..........: hashcat
+            Status...........: Cracked
+            Hash.Mode........: 0 (MD5)
+            Hash.Target......: a5e10524dda9887ddb4efcee847e3a71
+            Time.Started.....: Mon Nov 25 18:26:17 2024 (0 secs)
+            Time.Estimated...: Mon Nov 25 18:26:17 2024 (0 secs)
+            Kernel.Feature...: Pure Kernel
+            Guess.Base.......: File (10k-most-common.txt)
+            Guess.Queue......: 1/1 (100.00%)
+            Speed.#1.........:   219.2 kH/s (0.03ms) @ Accel:256 Loops:1 Thr:64 Vec:1
+            Speed.#2.........:  1279.3 kH/s (0.44ms) @ Accel:128 Loops:1 Thr:64 Vec:1
+            Speed.#*.........:  1498.5 kH/s
+            Recovered........: 1/1 (100.00%) Digests (total), 1/1 (100.00%) Digests (new)
+            Progress.........: 10000/10000 (100.00%)
+            Rejected.........: 0/10000 (0.00%)
+            Restore.Point....: 0/10000 (0.00%)
+            Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1
+            Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:0-1
+            Candidate.Engine.: Device Generator
+            Candidates.#1....: help -> roxanne
+            Candidates.#2....: ralph -> eyphed
+            Hardware.Mon.#1..: Temp:  0c Util:  0% Core:1124MHz Mem: 900MHz Bus:4
+            Hardware.Mon.#2..: N/A
+
+            Started: Mon Nov 25 18:26:11 2024
+            Stopped: Mon Nov 25 18:26:19 2024
+        </pre>
+        <p>In 0 sec, the program was able to crack our (weak) password. The password was "eldorado"</p>
+
         <p>This demonstrates how attackers exploit weak hash functions in real-world scenarios.</p>
     </main>
 
